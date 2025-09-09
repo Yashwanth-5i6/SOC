@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: "Times New Roman", serif;
+      background: linear-gradient(135deg, #ff7e00, #ffaa00);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    
+    .form-container {
+      width: 90%;
+      max-width: 700px;
+      background-color: antiquewhite;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      padding: 30px;
+      border: 2px solid #ff7e00;
+    }
+    
+    .form-title {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 32px;
+      margin-bottom: 25px;
+      color: orangered;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      letter-spacing: 1px;
+    }
+    
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 15px;
+      margin: 15px 0;
+      align-items: center;
+    }
+    
+    label {
+      font-weight: bold;
+      color:green;
+    }
+    
+    input, select {
+      padding: 12px;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      transition: all 0.3s;
+      width: 100%;
+      font-family: "Times New Roman", serif;
+      font-size: 16px;
+    }
+    
+    input:focus, select:focus {
+      border-color: orange;
+      outline: none;
+      box-shadow: 0 0 8px rgba(255, 126, 0, 0.5);
+      transform: scale(1.02);
+    }
+    
+    .hobbies-container {
+      margin: 15px 0;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 15px;
+    }
+    
+    .hobbies-title {
+      font-weight: bold;
+      color: green;
+    }
+    
+    .hobbies-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .hobby-option {
+      display: flex;
+      align-items: center;
+    }
+    
+    .hobby-option input {
+      width: auto;
+      margin-right: 10px;
+      transform: scale(1.2);
+    }
+    
+    .password-container {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 15px;
+      margin: 15px 0;
+      align-items: center;
+    }
+    
+    .submit-container {
+      text-align: center;
+      margin-top: 25px;
+    }
+    
+    button {
+      background: linear-gradient(to bottom, #ff7e00, #ff5500);
+      color: white;
+      padding: 14px 35px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+      transition: all 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    button:hover {
+      background: linear-gradient(to bottom, #ffaa00, #ff3300);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+        
+    @media (max-width: 600px) {
+      .row{
+        grid-template-columns: 1fr;
+      }
+      
+      .form-title {
+        font-size: 28px;
+      }
+      
+      .form-container {
+        padding: 20px;
+      }
+    }
+    
+    @media (min-width: 601px) and (max-width: 900px) {
+      .row {
+        grid-template-columns: 1fr 1.8fr;
+        gap: 10px;
+      }
+    }
+    
+    @media (min-width: 901px) {
+      .row, .hobbies-container, .password-container {
+        grid-template-columns: 1fr 2fr;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <div class="form-title">Student Registration</div>
+    <form id="registrationForm">
+      <div class="row">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required>
+      </div>
+      
+      <div class="row">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+      </div>
+      
+      <div class="row">
+        <label for="gender">Gender:</label>
+        <select name="gender" id="gender" required>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+      
+      <div class="hobbies-container">
+        <div class="hobbies-title">Hobbies:</div>
+        <div class="hobbies-options">
+          <div class="hobby-option">
+            <input type="checkbox" name="hobbies" id="sports" value="sports">
+            <label for="sports">Sports</label>
+          </div>
+          <div class="hobby-option">
+            <input type="checkbox" name="hobbies" id="music" value="music">
+            <label for="music">Music</label>
+          </div>
+          <div class="hobby-option">
+            <input type="checkbox" name="hobbies" id="reading" value="reading">
+            <label for="reading">Reading</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="password-container">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter password" required>
+      </div>
+      
+      <div class="submit-container">
+        <button type="submit">Register</button>
+      </div>
+    </form>
+  </div>
+  </script>
+</body>
+</html>
